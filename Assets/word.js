@@ -1,66 +1,68 @@
-//. Use key events to listen for the letters that your players will type.
-//. Press any key to get started!
-//. Wins: (# of times user guessed the word correctly).
-//* If the word is `madonna`, display it like this when the game starts: `_ _ _ _ _ _ _`.
-//* As the user guesses the correct letters, reveal them: `m a d o _  _ a`.
-//. Number of Guesses Remaining: (# of guesses remaining for the user).
-//. Letters Already Guessed: (Letters the user has guessed, displayed like `L Z Y H`).
-//. After the user wins/loses the game should automatically choose another word and make the user play it.
+//create an array of bands
+var jamBands = ["allman brothers band","big gigantic","big head todd and the monsters","chris robinson brotherhood","circles around the sun",
+"dead and company","galactic","govt mule","greensky bluegrass","lettuce","the new mastersounds","pigeons playing ping pong","robert randolph and the family band",
+"spafford","umphreys mcgee"]
 
-//When game starts
-//Provides the correct amount of blanks to the screen - based off the array choices
-//When user clicks letter - it replaces the _ with the chocsen letter 
-
-
-
-
-// use the onkey.up function to track the user guesses
-// need to figure out how to stop duplicate letter choices 
-// Set a Var bands = to an array with 5 bands in it
-var jamBands = ["umphreys mcgee","lettuce","spafford","marcus king", "dead and co"]  
 var userGuess = []  //The letters guessed by the user 
-//Awaits for the computer to randomly choose a band  from the array (jamBands)
 var computerChoice = ""; 
-var wins = 0;
+var winCount = 0;
+var loseCount = 0;
 var guessesLeft = 10;
-
-//Re-useable function : place it in a global variable - which is just a 
-    //variable that standds outside of  { }
-
+var underScores = [];
+var incorrectGuess = [];
 
 
 
+
+//=============================================================================================================================
 function startGame(){
-    var blankSpaces = [];
-    
-    //Create var that holds the choseComputerWord 
-    //// set function to randomly pick one of the bands from the array
-    
-    computerChoice = jamBands[Math.floor(Math.random()*jamBands.length)]; 
-    console.log(computerChoice); 
-
-
-    //Create var that holds the length of the chosen word
-    var splitChoice = computerChoice.split("");
-    var splitLength = splitChoice.length;
-    //loop through the length to push to the blankSpaces []
-        for(var i=0; i<splitLength; i++) {
-            blankSpaces.push("_")
-        }
-        //Don't need # for Id, already in getElementbyId
-        document.getElementById("wordChoice").innerHTML = blankSpaces.join(" ");
-        console.log(blankSpaces);
+//CREATE UNDERSCORES BASED ON THE RANDOM WORD CHOSEN BY THE COMPUTER    
+    computerChoice = jamBands[Math.floor(Math.random()*jamBands.length)]; //generates random computer from jambands array
+    console.log(computerChoice); //prints the random band chosen
+   
+    var splitChoice = computerChoice.split(""); //splits computerChoice string in separate characters
+    console.log(splitChoice)                    //prints the result of the computerChoice split
+  
+    for(var i=0; i < splitChoice.length; i++) {
+        underScores.push("_")                   //loop through the length to push to the underScores []
+    }                                            
+    console.log(underScores);       
+    document.getElementById("wordChoice").innerHTML = underScores.join(" ");  
 }
 
     startGame();
+//==============================================================================================================================
+var guessed = function(){
+    document.getElementById("guesses").innerHTML = guessesLeft;
+    }  
+      
+    guessed();
 
- // if(computerChoice){
-   // document.querySelector("#wordChoice").innerHTML = computerChoice;
-  // }
-   
+    var guessedSoFar = function(){
+        document.getElementById("guessessofar").innerHTML = userGuess.join(",");
+        }  
+        guessedSoFar();
 
-  //querySelector - you have to specify if it is class (.) or id (#)
-  // getElementbyId or getElementbyClass -it is already 'type' is already specified 
-        // so you do not need to use . or # 
+//==============================================================================================================================   
+document.onkeyup = function(event) {
+    var userGuess = event.key;
+    var letterKeyed = event.key.toLowerCase();
+    console.log(letterKeyed);
 
- 
+    //document.getElementById("guessedsofar").innerHTML = letterKeyed.join(" ");
+guessesLeft--;
+guessed(); 
+
+if(computerChoice.indexOf(letterKeyed) > -1) {
+    console.log(true);
+    underScores[computerChoice.indexOf(letterKeyed)] = letterKeyed;
+    console.log(underScores);
+    underScores[0].innerHTML = underScores.join(' ');
+    document.getElementById("wordChoice").innerHTML = underScores.join(" ");
+} else {incorrectGuess.push(letterKeyed);
+console.log(incorrectGuess)
+guessedSoFar();
+document.getElementById("guessessofar").innerHTML = incorrectGuess.join(",");
+}
+
+}
