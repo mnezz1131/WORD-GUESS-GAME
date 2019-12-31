@@ -1,0 +1,84 @@
+body{
+    background-image: url(../Assets/images/milky-way-starry-sky-night-sky-star-956981.jpeg);
+}
+
+h1 {
+font-size: 50px;
+text-align: center;
+margin: 15px;
+width: 80%;
+font-family: 'Lobster', cursive;
+margin: auto;
+color: rgb(8, 250, 8);
+text-shadow:
+  -1px -1px 0 rgb(151, 164, 201),
+  1px -1px 0  rgb(151, 164, 201),
+  -1px 1px 0  rgb(151, 164, 201),
+  1px 1px 0  rgb(151, 164, 201);
+}
+
+.container{
+background-image: url(../Assets/images/img1.JPG);
+height: 600px;
+width: 1280px;
+padding: 0px;
+margin-top: 20px;
+}
+
+p {
+  font-size: 49px;
+  color: rgb(20, 233, 134);
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-shadow:
+  -1px -1px 0 rgb(8, 8, 8),
+  1px -1px 0 rgb(10, 10, 10),
+  -1px 1px 0 rgb(12, 12, 12),
+  1px 1px 0 rgb(12, 12, 12);
+}
+
+#guess {
+    font-family: 'Baumans', cursive;
+    font-size: 50px;
+    color: rgb(188, 228, 125);
+    text-shadow:
+  -1px -1px 0 rgb(8, 8, 8),
+  1px -1px 0 rgb(10, 10, 10),
+  -1px 1px 0 rgb(12, 12, 12),
+  1px 1px 0 rgb(12, 12, 12);
+}
+
+.container2 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 18px;
+    color: rgb(8, 250, 8);
+    margin-bottom: -5px;
+    padding-top: 5px;
+    width: 1120px;
+    margin: 0 auto;
+}
+
+ #bands {
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 18px;
+    color:  rgb(8, 250, 8);
+    text-shadow: none;
+    margin-top: -10px;
+    text-shadow:
+  -1px -1px 0 rgb(8, 8, 8),
+  1px -1px 0 rgb(10, 10, 10),
+  -1px 1px 0 rgb(12, 12, 12),
+  1px 1px 0 rgb(12, 12, 12);
+ }
+
+a:link {
+    color: greenyellow;
+}
+
+a:visited {
+    color: chartreuse
+}
+
