@@ -1,4 +1,4 @@
-//Arrays and Variables for holding data
+
 var wordOptions = ["buckethead","twiddle","galactic","soulive", "khruangbin","lettuce","sunsquabi","spafford"]; 
 var selectedWord = ""; 
 var lettersInWord = []; 
@@ -54,8 +54,7 @@ if(isLetterInWord) {
         if(selectedWord[i] == letter) {
             blanksAndSuccesses[i] = letter;
         }
-    }
-    
+    }  
 }
 
 else{
@@ -64,15 +63,15 @@ else{
 }
 
 console.log(blanksAndSuccesses)
-
-
 }
 
 function roundComplete () {
-  //  console.log("Win Count: " + winCount + "| Loss Count: " + lossCount  + "| Guesses Left: "+ guessesLeft);
+   console.log("Win Count: " + winCount + "| Loss Count: " + lossCount  + "| Guesses Left: "+ guessesLeft);
     document.getElementById("numGuesses").innerHTML = guessesLeft;
     document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join(" ");
     document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(" ");
+ 
+ //Ran out of time, I don't know why wins aren't being logged.  Everything seems to match.  I don't know what else to try. 
  //blanks And Successes is consoled on line 67
  //letterInWord is consoled on line 21
    
